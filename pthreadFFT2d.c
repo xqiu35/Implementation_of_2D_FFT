@@ -116,7 +116,7 @@ void* Transform2DTHread(void* v)
         pthread_barrier_wait(&barrier);         // wait all threads finish 1D;  
 
         pthread_mutex_lock(&transposeMutex);    // only single cpu does transpose
- if(!transposeReady)
+        if(!transposeReady)
         {
                 transpose(data,height,width);           // transpose back
         }
@@ -171,7 +171,7 @@ void Transform2D(const char* inputFN)
         pthread_barrier_init(&barrier,0,16);    // init barrier
 
         pthread_t threads[num_threads];         // threads' ids
- int rc;                                 // return code
+        int rc;                                 // return code
         for(long i=0;i<num_threads;i++)
         {
                 rc = pthread_create(&threads[i],0,Transform2DTHread,(void*)i);  // create thread
@@ -186,8 +186,6 @@ void Transform2D(const char* inputFN)
         image.SaveImageData("Tower-DFT2D.txt",data,width,height);       // write to file
         delete [] garbage[0];                                   // delete garbage
         delete [] garbage[1];
-        pthread_exit(0);                                        // exit pthread
-
 }
 
 void Reorder(Complex* input)

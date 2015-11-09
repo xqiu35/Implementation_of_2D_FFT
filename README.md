@@ -5,7 +5,7 @@ This implementation belongs to Xiaofei Qiu, Computer engineering student in Geor
 
 This implementation assume the input image has same height and width <br/>
 
-The code is present in pthreadFFT2d.c <br/>
+The code is presented in pthreadFFT2d.c <br/>
 
 Tower.txt is defual input image data (256 x 256) <br/>
 
